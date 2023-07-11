@@ -1,25 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { AlertProvider } from './contexts/AlertProvider';
+import Main from './components/Main/Main';
+import Alert from './components/Alert/Alert';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    // Оборачиваем все провайдером, который внутри содержит глобальный контекст
+    <AlertProvider>
+      <div className={'container pt-3'}>
+        <Alert/>
+        <Main />
+      </div>
+    </AlertProvider>
+  )
 }
 
-export default App;
+export default App
